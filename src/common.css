@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
+:root {
+  --constant-blue: #0083fc;
+  --constant-dark-gray: #b5b5b5;
+  --constant-light-gray: #eaeaea;
+  --constant-dark-black: #1e2028;
+  --constant-light-black: #262a2f;
+  --constant-white: #fff;
+  --background-color: var(--constant-white);
+  --background-color-form: var(--constant-light-gray);
+  --font-color: var(--constant-dark-black);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: var(--constant-light-black);
+    --background-color-form: var(--constant-dark-black);
+    --font-color: var(--constant-white);
+  }
+}
+
+*:not(svg *) {
+  all: unset;
+  display: revert;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  background-color: var(--background-color);
+  color: var(--font-color);
+}
+
+.btn {
+  cursor: pointer;
+}
