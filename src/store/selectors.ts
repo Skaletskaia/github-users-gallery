@@ -11,3 +11,7 @@ export const getIndexRepository = (state: RootState) => {
 export const getCurrentRepository = (state: RootState) => {
   return state.currentRepository;
 };
+
+export const getOpenModal = (state: RootState) => {
+  return state.openModal;
+};

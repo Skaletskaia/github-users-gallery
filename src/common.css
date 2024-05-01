@@ -10,6 +10,7 @@
   --background-color: var(--constant-white);
   --background-color-form: var(--constant-light-gray);
   --font-color: var(--constant-dark-black);
+  --modal-wondow: var(--constant-light-gray);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,6 +18,7 @@
     --background-color: var(--constant-light-black);
     --background-color-form: var(--constant-dark-black);
     --font-color: var(--constant-white);
+    --modal-wondow: var(--constant-dark-black);
   }
 }
 

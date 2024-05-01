@@ -5,6 +5,7 @@ const initialState = {
   repositories: [],
   indexRepository: 0,
   currentRepository: null,
+  openModal: false,
 };
 
 export const repositoriesSlice = createSlice({
@@ -31,6 +32,9 @@ export const repositoriesSlice = createSlice({
     setCurrentRepository: (state, action) => {
       state.currentRepository = action.payload;
     },
+    setOpenModal: (state, action) => {
+      state.openModal = action.payload;
+    },
   },
 });
 
@@ -39,6 +43,7 @@ export const {
   increaseIndexRepository,
   decreaseIndexRepository,
   setCurrentRepository,
+  setOpenModal,
 } = repositoriesSlice.actions;
 export const reducer = repositoriesSlice.reducer;
 
