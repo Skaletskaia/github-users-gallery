@@ -15,12 +15,12 @@
   width: 100%;
 }
 
-.slider__description .row-skeleton:last-child {
-  width: 80%;
-}
-
 .slider__value .row-skeleton {
   width: 45px;
+}
+
+.slider__description .row-skeleton:last-child {
+  width: 80%;
 }
 
 @media (min-width: 744px) {

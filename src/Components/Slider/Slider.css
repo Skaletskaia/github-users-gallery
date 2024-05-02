@@ -26,10 +26,11 @@
 }
 
 .slider__description {
-  font-family: "Roboto Mono";
+  font-family: "Roboto Mono", monospace;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.2em;
+
   /* height: 4.8em; */
   overflow: hidden;
   text-overflow: ellipsis;

@@ -5,6 +5,7 @@
   width: 100%;
   height: 100%;
 }
+
 .modal__overlay {
   width: 100%;
   height: 100%;
@@ -25,7 +26,7 @@
 }
 
 .modal__owner {
-  font-family: "Roboto Mono";
+  font-family: "Roboto Mono", monospace;
   font-size: 14px;
   line-height: 18.5px;
   font-weight: 400;
@@ -40,7 +41,7 @@
 }
 
 .modal__description {
-  font-family: "Roboto Mono";
+  font-family: "Roboto Mono", monospace;
   font-size: 14px;
   line-height: 18.5px;
   font-weight: 400;
@@ -52,9 +53,8 @@
   gap: 4px;
 }
 
-/* решить что-то с ссылкой */
 .modal__link {
-  font-family: "Roboto Mono";
+  font-family: "Roboto Mono", monospace;
   font-size: 14px;
   line-height: 18.5px;
   color: var(--constant-blue);
@@ -68,14 +68,13 @@
 }
 
 .modal__topic {
-  font-family: "Roboto Mono";
+  font-family: "Roboto Mono", monospace;
   font-size: 14px;
   line-height: 18.5px;
   background-color: var(--constant-blue);
   color: var(--constant-white);
   padding: 4px 8px;
   border-radius: 8px;
-  line-height: 18.5px;
 }
 
 .modal__box-score {
@@ -84,7 +83,7 @@
 }
 
 .modal__box-item {
-  font-family: "Roboto Mono";
+  font-family: "Roboto Mono", monospace;
   font-size: 14px;
   line-height: 18.5px;
   display: flex;
@@ -94,17 +93,28 @@
 
 .modal-enter {
   opacity: 0;
+  transform: scale(0.5);
 }
+
 .modal-enter-active {
   opacity: 1;
-  transition: opacity 200ms ease-in;
+  transform: scale(1);
+  transition:
+    opacity 300ms ease-in,
+    transform 300ms ease-in;
 }
+
 .modal-exit {
   opacity: 1;
+  transform: scale(1);
 }
+
 .modal-exit-active {
   opacity: 0;
-  transition: opacity 200ms ease-out;
+  transform: scale(0.5);
+  transition:
+    opacity 300ms ease-out,
+    transform 300ms ease-out;
 }
 
 @media (min-width: 744px) {

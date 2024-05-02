@@ -6,7 +6,15 @@ interface TSkeletonText {
 }
 
 export const SkeletonText: FC<TSkeletonText> = ({ rows }) => {
-  return Array.from({ length: rows }).map((_, index) => {
-    return <div className="row-skeleton" key={index}></div>;
-  });
+  return (
+    <>
+      {Array.from({ length: rows }).map((_, index) => (
+        <span
+          className="row-skeleton"
+          key={index}
+          style={{ display: "block" }}
+        ></span>
+      ))}
+    </>
+  );
 };

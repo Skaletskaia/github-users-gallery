@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   fetchRepositories,
@@ -20,6 +20,7 @@ import "./App.css";
 
 export const App = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const modalRef = useRef(null);
   const repositories = useSelector(getRepositories);
   const indexRepository = useSelector(getIndexRepository);
   const currentRepository: RepositoryAPI | null =
@@ -51,12 +52,15 @@ export const App = () => {
 
         <CSSTransition
           in={openModal}
-          timeout={200}
+          timeout={300}
           classNames="modal"
           mountOnEnter
           unmountOnExit
+          nodeRef={modalRef}
         >
-          <ModalWindow />
+          <div ref={modalRef}>
+            <ModalWindow />
+          </div>
         </CSSTransition>
       </main>
     </>
