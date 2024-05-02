@@ -1,18 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../store/index";
-import { decreaseIndexRepository } from "../../store/repositoriesSlice";
-import { getIndexRepository } from "../../store/selectors";
+import {
+  decreaseIndexRepository,
+  setCurrentRepository,
+} from "../../store/repositoriesSlice";
+import { getIndexRepository, getRepositories } from "../../store/selectors";
 
 export const ArrowLeft = () => {
   const dispatch = useDispatch<AppDispatch>();
   const indexRepository = useSelector(getIndexRepository);
+  const repositories = useSelector(getRepositories);
+
+  const handleClick = () => {
+    dispatch(decreaseIndexRepository(indexRepository));
+  };
+
+  useEffect(() => {
+    dispatch(setCurrentRepository(repositories[indexRepository]));
+  }, [indexRepository]);
 
   return (
-    <button
-      className="btn"
-      onClick={() => dispatch(decreaseIndexRepository(indexRepository))}
-    >
+    <button className="btn" onClick={handleClick}>
       <svg
         width="16"
         height="31"

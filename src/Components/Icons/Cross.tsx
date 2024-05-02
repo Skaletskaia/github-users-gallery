@@ -1,11 +1,25 @@
-import React from "react";
+import React, { FC } from "react";
+import { useDispatch } from "react-redux";
+import { setOpenModal } from "../../store/repositoriesSlice";
 
-export const Cross = () => {
+export interface TCross {
+  className: string;
+  size: number;
+}
+
+export const Cross: FC<TCross> = ({ className, size }) => {
+  const dispatch = useDispatch();
+
   return (
-    <button>
+    <button
+      className={className}
+      onClick={() => {
+        dispatch(setOpenModal(false));
+      }}
+    >
       <svg
-        width="24"
-        height="24"
+        width={size}
+        height={size}
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

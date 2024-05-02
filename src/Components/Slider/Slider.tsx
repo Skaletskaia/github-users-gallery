@@ -1,59 +1,46 @@
-import React, { FC, useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Star } from "@components/Icons/Star";
 import { Fork } from "@components/Icons/Fork";
-import { RepositoryAPI } from "../../types";
 import { ArrowLeft } from "@components/Icons/ArrowLeft";
-import { ArrowRight } from "../Icons/ArrowRight";
-import { ModalWindow } from "@components/ModalWindow/ModalWindow";
+import { ArrowRight } from "@components/Icons/ArrowRight";
+import { setOpenModal } from "../../store/repositoriesSlice";
+import { getCurrentRepository } from "../../store/selectors";
+
 import "./Slider.css";
 
-export const Slider: FC<RepositoryAPI> = ({
-  name,
-  description,
-  owner,
-  html_url,
-  topics,
-  stargazers_count,
-  forks,
-}) => {
-  const [openModal, setOpenModal] = useState<boolean>(false);
+export const Slider = () => {
+  const dispatch = useDispatch();
+  const currentRepository = useSelector(getCurrentRepository);
+
+  const handleClick = () => {
+    dispatch(setOpenModal(true));
+  };
+
+  if (!currentRepository) {
+    return null;
+  }
 
   return (
     <div className="slider">
-      <div className="slider__wrapper">
-        <ArrowLeft />
-        <div
-          className="slider__main"
-          onClick={() => {
-            setOpenModal(true);
-          }}
-        >
-          <h2 className="slider__title">{name}</h2>
-          <p className="slider__description">{description}</p>
-          <div className="slider__box-values">
-            <div className="slider__box-item">
-              <Star />
-              <p className="slider__value">{stargazers_count}</p>
-            </div>
-            <div className="slider__box-item">
-              <Fork />
-              <p className="slider__value">{forks}</p>
-            </div>
+      <ArrowLeft />
+      <div className="slider__main" onClick={handleClick}>
+        <h2 className="slider__title">{currentRepository.name}</h2>
+        <p className="slider__description">{currentRepository.description}</p>
+        <div className="slider__box-values">
+          <div className="slider__box-item">
+            <Star />
+            <p className="slider__value">
+              {currentRepository.stargazers_count}
+            </p>
+          </div>
+          <div className="slider__box-item">
+            <Fork />
+            <p className="slider__value">{currentRepository.forks}</p>
           </div>
         </div>
-        <ArrowRight />
       </div>
-      {openModal && (
-        <ModalWindow
-          name={name}
-          description={description}
-          owner={owner}
-          html_url={html_url}
-          topics={topics}
-          stargazers_count={stargazers_count}
-          forks={forks}
-        />
-      )}
+      <ArrowRight />
     </div>
   );
 };

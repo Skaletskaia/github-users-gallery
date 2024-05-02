@@ -1,7 +1,15 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { apiData } from "./api";
+import { RepositoryAPI } from "../types";
 
-const initialState = {
+interface RepositoriesState {
+  repositories: RepositoryAPI[];
+  indexRepository: number;
+  currentRepository: RepositoryAPI | null;
+  openModal: boolean;
+}
+
+const initialState: RepositoriesState = {
   repositories: [],
   indexRepository: 0,
   currentRepository: null,

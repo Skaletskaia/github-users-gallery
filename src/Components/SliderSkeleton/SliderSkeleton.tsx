@@ -11,32 +11,30 @@ export const SliderSkeleton = () => {
 
   return (
     <div className="slider">
-      <div className="slider__wrapper">
-        <ArrowLeft />
-        <div className="slider__main">
-          <h2 className="slider__title">
-            <SkeletonText rows={1} />
-          </h2>
-          <p className="slider__description">
-            <SkeletonText rows={skeletonTextRows} />
-          </p>
-          <div className="slider__box-values">
-            <div className="slider__box-item">
-              <Star />
-              <p className="slider__value">
-                <SkeletonText rows={1} />
-              </p>
-            </div>
-            <div className="slider__box-item">
-              <Fork />
-              <p className="slider__value">
-                <SkeletonText rows={1} />
-              </p>
-            </div>
+      <ArrowLeft />
+      <div className="slider__main">
+        <h2 className="slider__title">
+          <SkeletonText rows={1} />
+        </h2>
+        <p className="slider__description">
+          <SkeletonText rows={skeletonTextRows} />
+        </p>
+        <div className="slider__box-values">
+          <div className="slider__box-item">
+            <Star />
+            <p className="slider__value">
+              <SkeletonText rows={1} />
+            </p>
+          </div>
+          <div className="slider__box-item">
+            <Fork />
+            <p className="slider__value">
+              <SkeletonText rows={1} />
+            </p>
           </div>
         </div>
-        <ArrowRight />
       </div>
+      <ArrowRight />
     </div>
   );
 };
