@@ -15,7 +15,6 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",
-    publicPath: "/",
   },
   module: {
     rules: [
@@ -71,8 +70,5 @@ module.exports = {
     },
     hot: true,
     open: true,
-    historyApiFallback: {
-      disableDotRule: true,
-    },
   },
 };
